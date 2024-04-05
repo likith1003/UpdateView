@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <center>
+        <h1>The Name of the School is {{schools.sname}}</h1>
+        <h1>The Principal of the school is {{schools.principal}}</h1>
+        <h1>The contact Number of the school is {{schools.contact}}</h1>
+        {% if schools.students.all|length %}
+              
+            
+        <table border="3px">
+            <tr>
+                <th>Student Name</th>
+                <th>Student Age</th>
+            </tr>
+            
+            {% for st in schools.students.all %}
+              <tr>
+                <td>{{st.stdname}}</td>
+                <td>{{st.stdage}}</td>
+              </tr>
+            {% endfor %}
+        </table>
+        {% else %}
+        <h1>No Students yet</h1>
+        {% endif %}
+        <a href="update{{schools.pk}}">Update School</a>
+    </center>
+</body>
+</html>
